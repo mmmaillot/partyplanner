@@ -8,8 +8,8 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String args[]) throws IOException {
-        System.out.println("Hello World");
-        System.in.read();
-        System.out.println("I read !");
+        System.out.println("Hello world ! How are you ?");
+        String blob = System.console().readLine();
+        System.out.println("Yeah, Me too ...");
     }
 }
