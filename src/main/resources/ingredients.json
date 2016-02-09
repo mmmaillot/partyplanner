@@ -1,1 +1,7 @@
-{"ingredient":"light rum","qty":"700"}
+{
+"ingredients" : [
+{"ingredient":"light rum","qty":"700"},
+{"ingredient":"lime juice","qty":"40"},
+{"ingredient":"simple syrup","qty":"700"}
+]
+}

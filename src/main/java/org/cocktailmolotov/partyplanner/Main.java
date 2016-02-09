@@ -1,12 +1,10 @@
 package org.cocktailmolotov.partyplanner;
 
 import org.cocktailmolotov.partyplanner.io.IngredientsLoader;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
@@ -24,14 +22,16 @@ public class Main {
         System.out.println("chocolat");
 
         IngredientsLoader il = new IngredientsLoader();
-        InputStreamReader ingredients = new InputStreamReader(il.loadIngredients());
-        Object obj = parser.parse(ingredients);
-        JSONObject jsonObject = (JSONObject) obj;
-        String ingredient = (String) jsonObject.get("ingredient");
-        String qty = (String) jsonObject.get("qty");
+        InputStreamReader ingredientsFile = new InputStreamReader(il.loadIngredients());
+        Object obj = parser.parse(ingredientsFile);
+        JSONObject ingredientObject = (JSONObject) obj;
+        JSONArray ingredients = (JSONArray) ingredientObject.get("ingredients");
 
-        System.out.println(ingredient + " : " + qty);
-        String blob = System.console().readLine();
+        for(Object ingredient : ingredients){
+            JSONObject jsonIngred = (JSONObject)ingredient;
+            System.out.println(jsonIngred.get("ingredient"));
+        }
+        System.console().readLine();
         System.out.println("Yeah, Me too ...");
     }
 }
