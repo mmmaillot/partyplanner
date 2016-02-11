@@ -3,7 +3,7 @@ Simple command line tool to help the occasional mixologist
 
 To compile :
 ```bash
-maven clean install
+mvn clean install
 ```
 To execute :
 ```java
