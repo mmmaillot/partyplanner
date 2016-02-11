@@ -22,7 +22,7 @@ public class Main {
         System.out.println("chocolat");
 
         IngredientsLoader il = new IngredientsLoader();
-        InputStreamReader ingredientsFile = new InputStreamReader(il.loadIngredients());
+        InputStreamReader ingredientsFile = new InputStreamReader(il.load());
         Object obj = parser.parse(ingredientsFile);
         JSONObject ingredientObject = (JSONObject) obj;
         JSONArray ingredients = (JSONArray) ingredientObject.get("ingredients");

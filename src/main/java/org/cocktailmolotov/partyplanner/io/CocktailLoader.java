@@ -5,16 +5,14 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
- * Created by maxime on 08/02/16.
+ * Created by maxime on 11/02/16.
  */
-public class IngredientsLoader implements JSONLoader{
+public class CocktailLoader implements JSONLoader {
 
-    public IngredientsLoader(){}
-
+    final String COCKTAILS_URL = "cocktails.json";
     @Override
     public InputStream load() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
-        URL ingredients = classLoader.getResource("ingredients.json");
-        return ingredients.openStream();
-    }
+        URL cocktails = classLoader.getResource(COCKTAILS_URL);
+        return cocktails.openStream();   }
 }
