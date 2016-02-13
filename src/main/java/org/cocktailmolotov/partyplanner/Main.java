@@ -1,13 +1,17 @@
 package org.cocktailmolotov.partyplanner;
 
-import org.cocktailmolotov.partyplanner.io.IngredientsLoader;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.cocktailmolotov.partyplanner.dto.Cocktail;
+import org.cocktailmolotov.partyplanner.dto.Cocktails;
 import org.json.simple.parser.ParseException;
+
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -17,21 +21,40 @@ public class Main {
 
 
     public static void main(String args[]) throws IOException, URISyntaxException, ParseException {
-        JSONParser parser = new JSONParser();
 
-        System.out.println("chocolat");
+        ObjectMapper om = new ObjectMapper();
+        Cocktail mizuwari = createMizuwariCocktail();
+        Cocktail daiquiri =  createDaiquiriCocktail();
+        List<Cocktail> cocktailList = new ArrayList<>();
+        cocktailList.add(mizuwari);
+        cocktailList.add(daiquiri);
+        Cocktails cocktails = new Cocktails();
+        cocktails.setCocktails(cocktailList);
+        String cocktailFile = "/home/maxime/Documents/cocktails.json";
+        om.writeValue(new File(cocktailFile), cocktails);
+        System.out.println("done");
+        Cocktails cocktail = om.readValue(new File(cocktailFile), Cocktails.class);
+        System.out.println(cocktail);
+    }
 
-        IngredientsLoader il = new IngredientsLoader();
-        InputStreamReader ingredientsFile = new InputStreamReader(il.load());
-        Object obj = parser.parse(ingredientsFile);
-        JSONObject ingredientObject = (JSONObject) obj;
-        JSONArray ingredients = (JSONArray) ingredientObject.get("ingredients");
-
-        for(Object ingredient : ingredients){
-            JSONObject jsonIngred = (JSONObject)ingredient;
-            System.out.println(jsonIngred.get("ingredient"));
-        }
-        System.console().readLine();
-        System.out.println("Yeah, Me too ...");
+    private static Cocktail createMizuwariCocktail(){
+        Cocktail cocktail = new Cocktail();
+        cocktail.setId("Mizuwari");
+        HashMap<String,Integer> doses = new HashMap<>();
+        doses.put("water", 50);
+        doses.put("whisky",50);
+        cocktail.setDoses(doses);
+        return cocktail;
+    }
+    
+    private static Cocktail createDaiquiriCocktail(){
+        Cocktail cocktail = new Cocktail();
+        cocktail.setId("Daiquiri");
+        HashMap<String,Integer> doses = new HashMap<>();
+        doses.put("rhum", 60);
+        doses.put("lime juice",30);
+        doses.put("simple syrup",15);
+        cocktail.setDoses(doses);
+        return cocktail;
     }
 }
