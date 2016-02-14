@@ -31,7 +31,7 @@ public class Main {
         Cocktails cocktails = new Cocktails();
         cocktails.setCocktails(cocktailList);
         String cocktailFile = "/home/maxime/Documents/cocktails.json";
-        om.writeValue(new File(cocktailFile), cocktails);
+        om.writerWithDefaultPrettyPrinter().writeValue(new File(cocktailFile), cocktails);
         System.out.println("done");
         Cocktails cocktail = om.readValue(new File(cocktailFile), Cocktails.class);
         System.out.println(cocktail);
