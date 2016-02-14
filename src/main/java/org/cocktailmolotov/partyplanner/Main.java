@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.cocktailmolotov.partyplanner.dto.Cocktail;
 import org.cocktailmolotov.partyplanner.dto.Cocktails;
+import org.cocktailmolotov.partyplanner.io.CocktailLoader;
 import org.json.simple.parser.ParseException;
 
 import java.io.File;
@@ -19,12 +20,11 @@ import java.util.List;
  */
 public class Main {
 
-	ClassLoader classLoader = getClass().getClassLoader();
-	static File file = new File(classLoader.getResource("cocktails.json").getFile());
-
     public static void main(String args[]) throws IOException, URISyntaxException, ParseException {
     	
-        ObjectMapper om = new ObjectMapper();
+    	File file = CocktailLoader.getLoader().getCocktailsFile();
+
+    	ObjectMapper om = new ObjectMapper();
         Cocktail mizuwari = createMizuwariCocktail();
         Cocktail daiquiri =  createDaiquiriCocktail();
         HashMap<String,HashMap<String,Integer>> cocktailMap = new HashMap<>();
@@ -32,7 +32,7 @@ public class Main {
         cocktailMap.put(daiquiri.getId(),daiquiri.getDoses());
         Cocktails cocktails = new Cocktails();
         cocktails.setCocktails(cocktailMap);
-        String cocktailFile = "/home/maxime/Documents/cocktails.json";
+//        String cocktailFile = "/home/maxime/Documents/cocktails.json";
         om.writerWithDefaultPrettyPrinter().writeValue(file, cocktails);
         System.out.println("done");
         Cocktails cocktail = om.readValue(file, Cocktails.class);
