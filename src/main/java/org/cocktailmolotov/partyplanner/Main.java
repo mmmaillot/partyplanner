@@ -19,21 +19,23 @@ import java.util.List;
  */
 public class Main {
 
+	ClassLoader classLoader = getClass().getClassLoader();
+	static File file = new File(classLoader.getResource("cocktails.json").getFile());
 
     public static void main(String args[]) throws IOException, URISyntaxException, ParseException {
-
+    	
         ObjectMapper om = new ObjectMapper();
         Cocktail mizuwari = createMizuwariCocktail();
         Cocktail daiquiri =  createDaiquiriCocktail();
-        List<Cocktail> cocktailList = new ArrayList<>();
-        cocktailList.add(mizuwari);
-        cocktailList.add(daiquiri);
+        HashMap<String,HashMap<String,Integer>> cocktailMap = new HashMap<>();
+        cocktailMap.put(mizuwari.getId(),mizuwari.getDoses());
+        cocktailMap.put(daiquiri.getId(),daiquiri.getDoses());
         Cocktails cocktails = new Cocktails();
-        cocktails.setCocktails(cocktailList);
+        cocktails.setCocktails(cocktailMap);
         String cocktailFile = "/home/maxime/Documents/cocktails.json";
-        om.writerWithDefaultPrettyPrinter().writeValue(new File(cocktailFile), cocktails);
+        om.writerWithDefaultPrettyPrinter().writeValue(file, cocktails);
         System.out.println("done");
-        Cocktails cocktail = om.readValue(new File(cocktailFile), Cocktails.class);
+        Cocktails cocktail = om.readValue(file, Cocktails.class);
         System.out.println(cocktail);
     }
 
