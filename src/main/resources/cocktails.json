@@ -1,1 +1,18 @@
-{"id":"Daiquiri","doses":[{"light rum":"60"},{"lime juice":"30"},{"simple syrup":"15"}]}
+{
+  "cocktails" : {
+    "blob" : {
+      "simple syrup" : 15,
+      "rhum" : 60,
+      "lime juice" : 30
+    },
+    "Mizuwari" : {
+      "whisky" : 50,
+      "water" : 50
+    },
+    "Daiquiri" : {
+      "simple syrup" : 15,
+      "rhum" : 60,
+      "lime juice" : 30
+    }
+  }
+}
