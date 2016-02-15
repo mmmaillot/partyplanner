@@ -1,7 +1,39 @@
 {
-"ingredients" : [
-{"ingredient":"light rum","qty":"700"},
-{"ingredient":"lime juice","qty":"40"},
-{"ingredient":"simple syrup","qty":"700"}
-]
+  "ingredients" : {
+    "angostura bitters" : 10.0,
+    "cynar" : 10.0,
+    "maraschino" : 10.0,
+    "creme de mure" : 10.0,
+    "dry vermouth" : 10.0,
+    "apricot brandy" : 10.0,
+    "cognac" : 10.0,
+    "rum" : 10.0,
+    "orgeat syrup" : 10.0,
+    "gin" : 10.0,
+    "dark rum" : 10.0,
+    "creme de violette" : 10.0,
+    "whisky" : 10.0,
+    "rosemary sprig" : 10.0,
+    "absinthe" : 10.0,
+    "champagne" : 10.0,
+    "egg white" : 10.0,
+    "grapefruit juice" : 10.0,
+    "basil leaves" : 10.0,
+    "green chartreuse" : 10.0,
+    "bourbon" : 10.0,
+    "mint leaves" : 10.0,
+    "orange bitter" : 10.0,
+    "water" : 10.0,
+    "tequila" : 10.0,
+    "curacao" : 10.0,
+    "simple syrup" : 10.0,
+    "campari" : 10.0,
+    "sweet vermouth" : 10.0,
+    "tonic" : 10.0,
+    "lemon juice" : 10.0,
+    "sparkling water" : 10.0,
+    "lime juice" : 10.0,
+    "rye" : 10.0,
+    "creme de framboise" : 10.0
+  }
 }
