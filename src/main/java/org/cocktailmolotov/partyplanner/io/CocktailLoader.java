@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
+import org.cocktailmolotov.partyplanner.dto.Cocktails;
+import org.cocktailmolotov.partyplanner.dto.Ingredients;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * Created by maxime on 11/02/16.
  */
@@ -30,6 +35,19 @@ public class CocktailLoader {
 
 		public File getIngredientsFile() throws IOException {
 			return new File(INGREDIENTS_URL);
+		}
+		
+		public Cocktails loadCocktails() throws IOException{
+			File file = getCocktailsFile();
+			ObjectMapper om = new ObjectMapper();
+			Cocktails cocktails = om.readValue(file, Cocktails.class);
+			return cocktails;
+		}
+		
+		public Ingredients loadIngredients() throws IOException{
+			File file = getIngredientsFile();
+			ObjectMapper om = new ObjectMapper();
+			return om.readValue(file, Ingredients.class);
 		}
 	}
 }
