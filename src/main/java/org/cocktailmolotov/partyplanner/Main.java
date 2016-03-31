@@ -2,6 +2,7 @@ package org.cocktailmolotov.partyplanner;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.cocktailmolotov.partyplanner.dto.Cocktail;
 import org.cocktailmolotov.partyplanner.dto.Cocktails;
 import org.cocktailmolotov.partyplanner.dto.Ingredients;
 import org.cocktailmolotov.partyplanner.io.CocktailLoader;
@@ -21,18 +22,20 @@ public class Main {
 
 	public static void main(String args[]) throws IOException, URISyntaxException, ParseException {
 
-		File file = CocktailLoader.getLoader().getCocktailsFile();
-		ObjectMapper om = new ObjectMapper();
-		Cocktails cocktails = om.readValue(file, Cocktails.class);
-		HashMap<String, Double> ingredientsMap = new HashMap<>();
-		for(HashMap<String, Double> cocktail : cocktails.getCocktails().values()){
-			for(String ingred : cocktail.keySet()){
-				System.out.println(ingred);
-			}
+		int quantite = 10;
+		HashMap<String, Integer> groceries = new HashMap<>();
+
+		Cocktails cocktails = CocktailLoader.getLoader().loadCocktails();
+		Ingredients ingredients = CocktailLoader.getLoader().loadIngredients();
+		System.out.println(cocktails.getCocktails().get("Mai Tai"));
+		System.out.println(ingredients.getIngredients().get("gin"));
+		HashMap<String, Double> maiTai = cocktails.getCocktails().get("Mai Tai");
+		for(String ingredient : maiTai.keySet()){
+			System.out.println(ingredient + " : " + roundUp(quantite * maiTai.get(ingredient) / ingredients.getIngredients().get(ingredient)));
 		}
-		Ingredients ingredients = new Ingredients();
-		ingredients.setIngredients(ingredientsMap);
-		file = CocktailLoader.getLoader().getIngredientsFile();
-		om.writerWithDefaultPrettyPrinter().writeValue(file, ingredients);
+	}
+	
+	public static int roundUp(double qty){
+		return (int) Math.round(Math.ceil(qty));
 	}
 }
