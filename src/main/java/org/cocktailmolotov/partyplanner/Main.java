@@ -27,7 +27,6 @@ public class Main {
 		HashMap<String, Double> ingredientsMap = new HashMap<>();
 		for(HashMap<String, Double> cocktail : cocktails.getCocktails().values()){
 			for(String ingred : cocktail.keySet()){
-				ingredientsMap.put(ingred, 10.);
 				System.out.println(ingred);
 			}
 		}
