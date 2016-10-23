@@ -24,20 +24,28 @@ import java.util.Map.Entry;
  */
 public class Main {
 
-	public static void main(String args[]) throws IOException, URISyntaxException, ParseException, org.apache.commons.cli.ParseException {
+	public static void main(String args[]) throws IOException, URISyntaxException, ParseException {
 
 		Options options = CocktailsOptionsBuilder.getOptions();
 		HelpFormatter formatter = new HelpFormatter();
-		formatter.printHelp("partyplanner", options);
+
+		Cocktails cocktails = CocktailLoader.getLoader().loadCocktails();
+		Ingredients ingredients = CocktailLoader.getLoader().loadIngredients();
 
 		CommandLineParser parser = new DefaultParser();
-		CommandLine cmd = parser.parse( options, args);
+		try{
+			CommandLine cmd = parser.parse( options, args);
 
-		int quantite = Integer.parseInt(cmd.getOptionValue("n"));
-		String[] cocktailsFromCLI = cmd.getOptionValues("cocktail-list");
-		Arrays.stream(cocktailsFromCLI).forEach(System.out::println);
+			if(cmd.hasOption("p")){
+				cocktails.getCocktails().keySet().stream().forEach(p -> System.out.println(p));
+			}
 
-		HashMap<String, Integer> groceries = QtyCalculator.computeQtys(cocktailsFromCLI,quantite, CocktailLoader.getLoader().loadCocktails(), CocktailLoader.getLoader().loadIngredients());
-		System.out.println(groceries);
+			int qty = Integer.parseInt(cmd.getOptionValue("n"));
+			String[] cocktailsFromCLI = cmd.getOptionValues("cocktail-list");
+			HashMap<String, Integer> groceries = QtyCalculator.computeQtys(cocktailsFromCLI,qty, cocktails, ingredients);
+			System.out.println(groceries);
+		} catch (org.apache.commons.cli.ParseException e){
+			formatter.printHelp("partyplanner", options);
+		}
 	}
 }

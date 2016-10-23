@@ -7,5 +7,5 @@ mvn clean install
 ```
 To execute :
 ```java
-java -jar target/partyplanner-jar-with-dependencies.jar
+java -jar target/partyplanner-jar-with-dependencies.jar -n <number of participants> -cocktail-list <cocktail_1 cocktai_2 ... cocktail_n>
 ```

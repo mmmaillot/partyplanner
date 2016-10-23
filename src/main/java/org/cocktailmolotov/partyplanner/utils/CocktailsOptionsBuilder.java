@@ -12,12 +12,15 @@ public class CocktailsOptionsBuilder {
         // create Options object
         Options options = new Options();
 
-        options.addOption("n", true, "The number of person attending the party");
+        Option numberParticipants = new Option("n",true,"The number of person attending the party");
+        numberParticipants.setRequired(true);
+        options.addOption(numberParticipants);
+
+        options.addOption("p", false, "Print the cocktails list");
 
         Option cocktailList = Option.builder()
                 .required()
-                .argName("cl")
-                .desc("The list of cocktails")
+                .desc("The list of cocktails, separated by spaces")
                 .longOpt("cocktail-list")
                 .numberOfArgs(Option.UNLIMITED_VALUES)
                 .build();
