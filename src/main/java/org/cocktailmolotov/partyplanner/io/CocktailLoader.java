@@ -15,39 +15,31 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class CocktailLoader {
 
-	static Loader LOADER = new Loader();
+	final private static Loader LOADER = new Loader();
+
 	public static Loader getLoader(){
 		return LOADER;
-	} 
+	}
 
 
 	public static class Loader {
+		final private ObjectMapper om = new ObjectMapper();
 		private Loader() {
 			// Nothing
 		}
 
-		final String COCKTAILS_URL = "/home/maxime/code/partyplanner/src/main/resources/cocktails.json";
-		final String INGREDIENTS_URL = "/home/maxime/code/partyplanner/src/main/resources/ingredients.json";
 
-		public File getCocktailsFile() throws IOException {
-			return new File(COCKTAILS_URL);
-		}
+		final InputStream COCKTAILS_STREAM = getClass().getClassLoader().getResourceAsStream("cocktails.json");
+		final InputStream INGREDIENTS_STREAM = getClass().getClassLoader().getResourceAsStream("ingredients.json");
 
-		public File getIngredientsFile() throws IOException {
-			return new File(INGREDIENTS_URL);
-		}
 		
 		public Cocktails loadCocktails() throws IOException{
-			File file = getCocktailsFile();
-			ObjectMapper om = new ObjectMapper();
-			Cocktails cocktails = om.readValue(file, Cocktails.class);
+			Cocktails cocktails = om.readValue(COCKTAILS_STREAM, Cocktails.class);
 			return cocktails;
 		}
 		
 		public Ingredients loadIngredients() throws IOException{
-			File file = getIngredientsFile();
-			ObjectMapper om = new ObjectMapper();
-			return om.readValue(file, Ingredients.class);
+			return om.readValue(INGREDIENTS_STREAM, Ingredients.class);
 		}
 	}
 }
