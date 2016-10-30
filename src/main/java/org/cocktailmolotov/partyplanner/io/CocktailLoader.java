@@ -1,11 +1,12 @@
 package org.cocktailmolotov.partyplanner.io;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 
+import com.fasterxml.jackson.databind.DeserializationConfig;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import org.cocktailmolotov.partyplanner.dto.Cocktails;
+import org.cocktailmolotov.partyplanner.dto.CocktailsOld;
 import org.cocktailmolotov.partyplanner.dto.Ingredients;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,9 +24,9 @@ public class CocktailLoader {
 
 
 	public static class Loader {
-		final private ObjectMapper om = new ObjectMapper();
+		final private ObjectMapper om;
 		private Loader() {
-			// Nothing
+			om = new ObjectMapper();
 		}
 
 

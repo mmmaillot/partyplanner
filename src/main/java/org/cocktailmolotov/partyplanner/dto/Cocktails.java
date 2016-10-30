@@ -6,24 +6,25 @@ import java.util.Map.Entry;
 
 public class Cocktails {
 
-	private HashMap<String,HashMap<String,Double>> cocktails;
+	private HashMap<String,Cocktail> cocktails;
 
 	public Cocktails() {
 		// no attributes needed
+		cocktails = new HashMap<>();
 	}
 
-	public HashMap<String,HashMap<String,Double>> getCocktails() {
+	public HashMap<String,Cocktail> getCocktails() {
 		return cocktails;
 	}
 
-	public void setCocktails(HashMap<String,HashMap<String,Double>> cocktails) {
+	public void setCocktails(HashMap<String,Cocktail> cocktails) {
 		this.cocktails = cocktails;
 	}
 
 	@Override
 	public String toString() {
 		String result = new String();
-		for(Entry<String,HashMap<String,Double>> cocktail : cocktails.entrySet()){
+		for(Entry<String,Cocktail> cocktail : cocktails.entrySet()){
 			result += cocktail.toString() + "\n";
 		}
 		return result;

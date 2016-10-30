@@ -1,178 +1,239 @@
-
 {
   "cocktails" : {
-    "Mai Tai" : {
-      "rum" : 30,
-      "dark rum" : 30,
-      "orgeat syrup" : 15,
-      "curacao" : 15,
-      "lime juice" : 30      
-    },
-    "Mizuwari" : {
-      "whisky" : 50,
-      "water" : 50
-    },
-    "Daiquiri" : {
-      "simple syrup" : 15,
-      "rum" : 60,
-      "lime juice" : 30
-    },
-    "Gin Sour" : {
-      "simple syrup" : 15,
-      "gin" : 60,
-      "lemon juice" : 30
+    "Margarita" : {
+      "recipe" : {
+        "tequila" : 60,
+        "curacao" : 20,
+        "lime juice" : 30
+      }
     },
     "Aviation" : {
-      "maraschino" : 15,
-      "gin" : 60,
-      "lemon juice" : 20,
-  "creme de violette" : 5
+      "recipe" : {
+        "creme de violette" : 5,
+        "maraschino" : 15,
+        "lemon juice" : 20,
+        "gin" : 60
+      }
     },
     "Bensonhurst" : {
-      "maraschino" : 10,
-      "rye" : 60,
-      "dry vermouth" : 30,
-  "cynar" : 5
-    },
-    "Bijou" : {
-      "green chartreuse" : 30,
-      "gin" : 30,
-      "sweet vermouth" : 30,
-  "orange bitter" : 0.2 
-    },
-    "Boulevardier" : {
-      "bourbon" : 45,
-      "sweet vermouth" : 20,
-      "campari" : 20
-    },
-    "Bramble" : {
-      "simple syrup" : 15,
-      "gin" : 60,
-      "lemon juice" : 30,
-  "creme de mure" : 15
-    },
-    "Brandy Crusta" : {
-      "simple syrup" : 5,
-      "cognac" : 60,
-      "lemon juice" : 5,
-  "curacao" : 2.5,
-  "angostura bitters" : 0.4
-    },
-    "Clover Club" : {
-      "simple syrup" : 10,
-      "gin" : 50,
-      "lemon juice" : 25,
-  "creme de framboise" : 15,
-  "egg white" : 10
-    },
-    "Death In The Afternoon" : {
-      "absinthe" : 30,
-      "champagne" : 120
-    },
-    "Diplomate" : {
-      "dry vermouth" : 45,
-      "sweet vermouth" : 30,
-      "maraschino" : 20,
-  "orange bitter" : 0.4
-    },
-    "Douglas Fairbanks" : {
-      "apricot brandy" : 30,
-      "gin" : 60,
-      "lime juice" : 25,
-  "egg white" : 10
-    },
-    "Dry Martini" : {
-      "dry vermouth" : 20,
-      "gin" : 50,
-      "orange bitter" : 0.2
-    },
-    "French 75" : {
-      "simple syrup" : 10,
-      "gin" : 60,
-      "lemon juice" : 15,
-  "champagne" : 150
-    },
-    "Gin & Tonic" : {
-      "gin" : 50,
-      "tonic" : 200
+      "recipe" : {
+        "cynar" : 5,
+        "maraschino" : 10,
+        "dry vermouth" : 30,
+        "rye" : 60
+      }
     },
     "Gin Basil Smash" : {
-      "simple syrup" : 20,
-      "gin" : 60,
-      "lemon juice" : 25,
-  "basil leaves" : 7
-    },
-    "Hemingway Special" : {
-      "maraschino" : 15,
-      "rum" : 60,
-      "lime juice" : 30,
-  "grapefruit juice" : 15
-    },
-    "Japanese" : {
-      "orgeat syrup" : 15,
-      "cognac" : 60,
-      "angostura bitters" : 0.4
-    },
-    "Last Word" : {
-      "gin" : 30,
-      "green chartreuse" : 30,
-      "lime juice" : 30,
-  "maraschino" : 30
-    },
-    "Manhattan" : {
-      "sweet vermouth" : 30,
-      "rye" : 60,
-      "angostura bitters" : 0.4
-    },
-    "Mint Julep" : {
-      "simple syrup" : 15,
-      "bourbon" : 75,
-      "mint leaves" : 10
+      "recipe" : {
+        "basil leaves" : 7,
+        "simple syrup" : 20,
+        "lemon juice" : 25,
+        "gin" : 60
+      }
     },
     "Negroni" : {
-      "gin" : 30,
-      "campari" : 30,
-      "sweet vermouth" : 30
+      "recipe" : {
+        "campari" : 30,
+        "sweet vermouth" : 30,
+        "gin" : 30
+      }
+    },
+    "Mai Tai" : {
+      "recipe" : {
+        "curacao" : 15,
+        "rum" : 30,
+        "orgeat syrup" : 15,
+        "dark rum" : 30,
+        "lime juice" : 30
+      }
+    },
+    "Gin Sour" : {
+      "recipe" : {
+        "simple syrup" : 15,
+        "lemon juice" : 30,
+        "gin" : 60
+      }
+    },
+    "Boulevardier" : {
+      "recipe" : {
+        "campari" : 20,
+        "bourbon" : 45,
+        "sweet vermouth" : 20
+      }
+    },
+    "Mint Julep" : {
+      "recipe" : {
+        "simple syrup" : 15,
+        "bourbon" : 75,
+        "mint leaves" : 10
+      }
+    },
+    "Bramble" : {
+      "recipe" : {
+        "creme de mure" : 15,
+        "simple syrup" : 15,
+        "lemon juice" : 30,
+        "gin" : 60
+      }
     },
     "Old Fashioned" : {
-      "simple syrup" : 15,
-      "bourbon" : 60,
-      "angostura bitters" : 0.4
+      "recipe" : {
+        "angostura bitters" : 0,
+        "simple syrup" : 15,
+        "bourbon" : 60
+      }
     },
-    "Pegu Club" : {
-      "curacao" : 20,
-      "gin" : 60,
-      "lime juice" : 15,
-  "angostura bitters" : 0.2,
-  "orange bitter" : 0.2
+    "Brandy Crusta" : {
+      "recipe" : {
+        "angostura bitters" : 0,
+        "curacao" : 2,
+        "simple syrup" : 5,
+        "cognac" : 60,
+        "lemon juice" : 5
+      }
+    },
+    "Hemingway Special" : {
+      "recipe" : {
+        "grapefruit juice" : 15,
+        "maraschino" : 15,
+        "rum" : 60,
+        "lime juice" : 30
+      }
+    },
+    "Bijou" : {
+      "recipe" : {
+        "green chartreuse" : 30,
+        "orange bitter" : 0,
+        "sweet vermouth" : 30,
+        "gin" : 30
+      }
+    },
+    "Douglas Fairbanks" : {
+      "recipe" : {
+        "apricot brandy" : 30,
+        "gin" : 60,
+        "egg white" : 10,
+        "lime juice" : 25
+      }
     },
     "Rubicon" : {
-      "green chartreuse" : 15,
-      "gin" : 60,
-      "maraschino" : 15,
-  "lemon juice" : 15,
-  "rosemary sprig" : 1
-    },
-    "Sidecar" : {
-      "curacao" : 20,
-      "cognac" : 40,
-      "lemon juice" : 10
-    },
-    "Gin Fizz" : {
-      "simple syrup" : 15,
-      "gin" : 60,
-      "lemon juice" : 30,
-  "sparkling water" : 60
+      "recipe" : {
+        "maraschino" : 15,
+        "green chartreuse" : 15,
+        "rosemary sprig" : 1,
+        "lemon juice" : 15,
+        "gin" : 60
+      }
     },
     "Whiskey Sour" : {
-      "simple syrup" : 15,
-      "bourbon" : 60,
-      "lemon juice" : 30
+      "recipe" : {
+        "simple syrup" : 15,
+        "bourbon" : 60,
+        "lemon juice" : 30
+      }
     },
-    "Margarita" : {
-      "tequila" : 60,
-      "curacao" : 20,
-      "lime juice" : 30
+    "Gin & Tonic" : {
+      "recipe" : {
+        "tonic" : 200,
+        "gin" : 50
+      }
+    },
+    "Gin Fizz" : {
+      "recipe" : {
+        "simple syrup" : 15,
+        "lemon juice" : 30,
+        "sparkling water" : 60,
+        "gin" : 60
+      }
+    },
+    "Dry Martini" : {
+      "recipe" : {
+        "dry vermouth" : 20,
+        "orange bitter" : 0,
+        "gin" : 50
+      }
+    },
+    "French 75" : {
+      "recipe" : {
+        "simple syrup" : 10,
+        "champagne" : 150,
+        "lemon juice" : 15,
+        "gin" : 60
+      }
+    },
+    "Japanese" : {
+      "recipe" : {
+        "angostura bitters" : 0,
+        "cognac" : 60,
+        "orgeat syrup" : 15
+      }
+    },
+    "Diplomate" : {
+      "recipe" : {
+        "maraschino" : 20,
+        "dry vermouth" : 45,
+        "orange bitter" : 0,
+        "sweet vermouth" : 30
+      }
+    },
+    "Death In The Afternoon" : {
+      "recipe" : {
+        "absinthe" : 30,
+        "champagne" : 120
+      }
+    },
+    "Pegu Club" : {
+      "recipe" : {
+        "angostura bitters" : 0,
+        "curacao" : 20,
+        "orange bitter" : 0,
+        "gin" : 60,
+        "lime juice" : 15
+      }
+    },
+    "Clover Club" : {
+      "recipe" : {
+        "simple syrup" : 10,
+        "lemon juice" : 25,
+        "gin" : 50,
+        "egg white" : 10,
+        "creme de framboise" : 15
+      }
+    },
+    "Mizuwari" : {
+      "recipe" : {
+        "whisky" : 50,
+        "water" : 50
+      }
+    },
+    "Daiquiri" : {
+      "recipe" : {
+        "simple syrup" : 15,
+        "rum" : 60,
+        "lime juice" : 30
+      }
+    },
+    "Last Word" : {
+      "recipe" : {
+        "maraschino" : 30,
+        "green chartreuse" : 30,
+        "gin" : 30,
+        "lime juice" : 30
+      }
+    },
+    "Manhattan" : {
+      "recipe" : {
+        "angostura bitters" : 0,
+        "sweet vermouth" : 30,
+        "rye" : 60
+      }
+    },
+    "Sidecar" : {
+      "recipe" : {
+        "curacao" : 20,
+        "cognac" : 40,
+        "lemon juice" : 10
+      }
     }
   }
 }

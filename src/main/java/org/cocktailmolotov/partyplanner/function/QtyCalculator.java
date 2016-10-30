@@ -2,7 +2,6 @@ package org.cocktailmolotov.partyplanner.function;
 
 import org.cocktailmolotov.partyplanner.dto.Cocktails;
 import org.cocktailmolotov.partyplanner.dto.Ingredients;
-import org.cocktailmolotov.partyplanner.io.CocktailLoader;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -15,14 +14,14 @@ public class QtyCalculator {
     public static HashMap<String, Integer> computeQtys(String[] cocktailsNames, int n, Cocktails cocktails, Ingredients ingredients){
 
         Set<String> currentIngredients = Arrays.stream(cocktailsNames)
-                .flatMap(cocktail -> cocktails.getCocktails().get(cocktail).keySet().stream())
+                .flatMap(cocktail -> cocktails.getCocktails().get(cocktail).getRecipe().keySet().stream())
                 .collect(Collectors.toSet());
 
         HashMap<String, Double> totalQtyByIngredients = new HashMap<>();
         currentIngredients.stream().forEach(ingred -> totalQtyByIngredients.put(ingred, 0d));
 
         for(String cocktail : cocktailsNames){
-            for(Map.Entry<String, Double> entry : cocktails.getCocktails().get(cocktail).entrySet()){
+            for(Map.Entry<String, Integer> entry : cocktails.getCocktails().get(cocktail).getRecipe().entrySet()){
                 totalQtyByIngredients.compute(entry.getKey(), (k,v) -> v + entry.getValue());
             }
         }

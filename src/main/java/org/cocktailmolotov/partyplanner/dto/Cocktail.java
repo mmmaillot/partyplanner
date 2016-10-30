@@ -1,31 +1,33 @@
 package org.cocktailmolotov.partyplanner.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.HashMap;
 import java.util.Map.Entry;
 
 /**
  * Created by maxime on 11/02/16.
  */
-public class Cocktail extends HashMap<String, Integer> {
-    private String id;
+public class Cocktail {
+    private HashMap<String, Integer> recipe;
 
     public Cocktail(){
         // no parameters needed
     }
 
-    public String getId() {
-        return id;
+    public HashMap<String, Integer> getRecipe() {
+        return recipe;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRecipe(HashMap<String, Integer> recipe) {
+        this.recipe = recipe;
     }
+
 
     @Override
     public String toString() {
     	String result = new String();
-    	result += getId() + "\n";
-    	for(Entry<String, Integer> dose : entrySet()){
+    	for(Entry<String, Integer> dose : recipe.entrySet()){
     		result += dose.getKey() + " : " + dose.getValue() + "\n";
     	}
     	return result;
