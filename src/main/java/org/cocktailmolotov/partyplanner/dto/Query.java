@@ -3,8 +3,9 @@ package org.cocktailmolotov.partyplanner.dto;
 import java.util.List;
 
 /**
- * Created by H9A on 04-Dec-16.
+ * Created by maxime on 26/11/16.
  */
+
 public class Query {
     private final int nGuests;
     private final List<String> cocktailList;
@@ -42,3 +43,4 @@ public class Query {
         }
     }
 }
+
