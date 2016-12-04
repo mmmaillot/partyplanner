@@ -3,6 +3,7 @@ package org.cocktailmolotov.partyplanner;
 import org.apache.commons.cli.*;
 import org.cocktailmolotov.partyplanner.dto.Cocktails;
 import org.cocktailmolotov.partyplanner.dto.Ingredients;
+import org.cocktailmolotov.partyplanner.dto.Query;
 import org.cocktailmolotov.partyplanner.function.QtyCalculator;
 import org.cocktailmolotov.partyplanner.io.CocktailLoader;
 import org.cocktailmolotov.partyplanner.utils.CocktailConsts;
@@ -11,7 +12,10 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.HashMap;
+
+import static org.cocktailmolotov.partyplanner.function.QtyCalculator.computeQtys;
 
 
 /**
@@ -37,7 +41,11 @@ public class Main {
 			if(cmd.hasOption(CocktailConsts.N_GUESTS) && cmd.hasOption(CocktailConsts.COCKTAILS_LIST)){
 				int qty = Integer.parseInt(cmd.getOptionValue(CocktailConsts.N_GUESTS));
 				String[] cocktailsFromCLI = cmd.getOptionValues(CocktailConsts.COCKTAILS_LIST);
-				HashMap<String, Integer> groceries = QtyCalculator.computeQtys(cocktailsFromCLI,qty, cocktails, ingredients);
+				Query query = new Query.Builder()
+						.setCocktailList(Arrays.asList(cocktailsFromCLI))
+						.setnGuests(qty)
+						.createQuery();
+				HashMap<String, Integer> groceries = computeQtys(query, cocktails, ingredients);
 				System.out.println(groceries);
 			}
 		} catch (org.apache.commons.cli.ParseException e){

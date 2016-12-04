@@ -2,6 +2,7 @@ package org.cocktailmolotov.partyplanner.function;
 
 import org.cocktailmolotov.partyplanner.dto.Cocktails;
 import org.cocktailmolotov.partyplanner.dto.Ingredients;
+import org.cocktailmolotov.partyplanner.dto.Query;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,16 +12,17 @@ import java.util.stream.Collectors;
  */
 public class QtyCalculator {
 
-    public static HashMap<String, Integer> computeQtys(String[] cocktailsNames, int n, Cocktails cocktails, Ingredients ingredients){
+    public static HashMap<String, Integer> computeQtys(Query query, Cocktails cocktails, Ingredients ingredients){
 
-        Set<String> currentIngredients = Arrays.stream(cocktailsNames)
+        Set<String> currentIngredients = query.getCocktailList()
+                .stream()
                 .flatMap(cocktail -> cocktails.getCocktails().get(cocktail).getRecipe().keySet().stream())
                 .collect(Collectors.toSet());
 
         HashMap<String, Double> totalQtyByIngredients = new HashMap<>();
         currentIngredients.stream().forEach(ingred -> totalQtyByIngredients.put(ingred, 0d));
 
-        for(String cocktail : cocktailsNames){
+        for(String cocktail : query.getCocktailList()){
             for(Map.Entry<String, Integer> entry : cocktails.getCocktails().get(cocktail).getRecipe().entrySet()){
                 totalQtyByIngredients.compute(entry.getKey(), (k,v) -> v + entry.getValue());
             }
@@ -28,7 +30,7 @@ public class QtyCalculator {
 
         HashMap<String, Integer> totalBottles = new HashMap<>();
         for(Map.Entry<String,Double> entry : totalQtyByIngredients.entrySet()){
-            totalBottles.put(entry.getKey(), roundUp(n * entry.getValue() / ingredients.getIngredients().get(entry.getKey())));
+            totalBottles.put(entry.getKey(), roundUp(query.getnGuests() * entry.getValue() / ingredients.getIngredients().get(entry.getKey())));
         }
 
         return totalBottles;
